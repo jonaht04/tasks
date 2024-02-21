@@ -120,7 +120,12 @@ export function injectPositive(values: number[]): number[] {
         return [0];
     }
     if (values.length === 0) {
-        return values;
+        return [0];
+    }
+    if (values[0] < 0) {
+        const newClonedValues = [...values];
+        newClonedValues.splice(1, 0, 0);
+        return newClonedValues;
     }
     const firstNegValue = values.findIndex(
         (value: number): boolean => value < 0
@@ -134,10 +139,14 @@ export function injectPositive(values: number[]): number[] {
         return finalValues;
     }
     clonedValues.splice(firstNegValue);
+    if (clonedValues.length === 0) {
+        const newClonedValues = [...values];
+        return newClonedValues;
+    }
     const sum = clonedValues.reduce(
         (currentTotal: number, num: number) => currentTotal + num
     );
     const newClonedValues = [...values];
-    newClonedValues.splice(firstNegValue, 0, sum);
-    return [];
+    newClonedValues.splice(firstNegValue + 1, 0, sum);
+    return newClonedValues;
 }
