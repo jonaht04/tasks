@@ -12,7 +12,8 @@ Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 PASS src/functions.test.ts
-PASS src/text.test.tsx
+PASS src/arrays.test.ts
+PASS src/HtmlCss.test.tsx
   ● Console
 
     console.error
@@ -30,7 +31,7 @@ PASS src/text.test.tsx
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
       at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
 
-PASS src/HtmlCss.test.tsx
+PASS src/text.test.tsx
   ● Console
 
     console.error
@@ -69,13 +70,14 @@ PASS src/App.test.tsx
 --------------|---------|----------|---------|---------|-------------------
 File          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------|---------|----------|---------|---------|-------------------
-All files     |     100 |      100 |     100 |     100 |                   
+All files     |    96.2 |    94.59 |     100 |    96.1 |                   
  App.tsx      |     100 |      100 |     100 |     100 |                   
+ arrays.ts    |   94.91 |    92.59 |     100 |   94.73 | 120,143-144       
  functions.ts |     100 |      100 |     100 |     100 |                   
 --------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 4 passed, 4 total
-Tests:       14 passed, 14 total
+Test Suites: 5 passed, 5 total
+Tests:       23 passed, 23 total
 Snapshots:   0 total
-Time:        2.91 s
+Time:        3.058 s
 Ran all test suites.
