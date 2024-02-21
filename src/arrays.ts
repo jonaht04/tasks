@@ -5,6 +5,9 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
+    if (numbers.length === 0) {
+        return [];
+    }
     const firstLastNums: number[] = [numbers[0], numbers[numbers.length - 1]];
     return firstLastNums;
 }
@@ -14,7 +17,7 @@ export function bookEndList(numbers: number[]): number[] {
  * number has been tripled (multiplied by 3).
  */
 export function tripleNumbers(numbers: number[]): number[] {
-    const tripled = numbers.map((num: number): number => num * 2);
+    const tripled = numbers.map((num: number): number => num * 3);
     return tripled;
 }
 
@@ -93,13 +96,13 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
+    if (addends.length === 0) {
+        return "0=0";
+    }
     const sum = addends.reduce(
         (currentTotal: number, num: number) => currentTotal + num
     );
     const origNums = addends.join("+");
-    if (addends.length === 0) {
-        return "0=0";
-    }
     return "" + sum + "=" + origNums;
 }
 
@@ -113,6 +116,12 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
+    if (values.length === 1 && values[0] === 0) {
+        return [0];
+    }
+    if (values.length === 0) {
+        return values;
+    }
     const firstNegValue = values.findIndex(
         (value: number): boolean => value < 0
     );
