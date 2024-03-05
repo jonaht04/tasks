@@ -10,7 +10,16 @@ export function makeBlankQuestion(
     name: string,
     type: QuestionType
 ): Question {
-    return {};
+    return {
+        id: id,
+        name: name,
+        type: type,
+        body: "",
+        expected: "",
+        options: [],
+        points: 1,
+        published: false
+    };
 }
 
 /**
@@ -21,6 +30,12 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
+    if (
+        question.expected.toLowerCase.prototype.trim() ===
+        answer.toLowerCase.prototype.trim()
+    ) {
+        return true;
+    }
     return false;
 }
 
@@ -31,6 +46,14 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
+    if (question.type === "short_answer_question") {
+        return true;
+    }
+    for (let i = 0; i < question.options.length; i++) {
+        if (question.options[i] === answer) {
+            return true;
+        }
+    }
     return false;
 }
 
@@ -41,7 +64,8 @@ export function isValid(question: Question, answer: string): boolean {
  * name "My First Question" would become "9: My First Q".
  */
 export function toShortForm(question: Question): string {
-    return "";
+    const representation = [question.id, question.name.slice(0, 10)];
+    return representation.join(": ");
 }
 
 /**
@@ -62,7 +86,12 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    return "";
+    const base = "# " + question.name + "\n" + question.body + "\n";
+    const addendum = [];
+    for (let i = 0; i < question.options.length; i++) {
+        addendum.push(question.options[i]);
+    }
+    return base + "\n- " + addendum.join("\n- ");
 }
 
 /**
@@ -70,7 +99,8 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    return question;
+    const newQuestion = { ...question, name: newName };
+    return newQuestion;
 }
 
 /**
@@ -79,7 +109,8 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
-    return question;
+    const newQuestion = { ...question, published: !question.published };
+    return newQuestion;
 }
 
 /**
