@@ -1,6 +1,6 @@
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
-import { makeBlankQuestion } from "./objects";
+import { duplicateQuestion, makeBlankQuestion } from "./objects";
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
@@ -225,7 +225,18 @@ export function changeQuestionTypeById(
     targetId: number,
     newQuestionType: QuestionType
 ): Question[] {
-    return [];
+    const newQuestions = questions.map(
+        (question: Question): Question => ({ ...question })
+    );
+    for (let i = 0; i < newQuestions.length; i++) {
+        if (newQuestions[i].id === targetId) {
+            newQuestions[i].type = newQuestionType;
+            if (newQuestionType === "short_answer_question") {
+                newQuestions[i].options = [];
+            }
+        }
+    }
+    return newQuestions;
 }
 
 /**
@@ -244,7 +255,21 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ): Question[] {
-    return [];
+    const newQuestions = questions.map(
+        (question: Question): Question => ({ ...question })
+    );
+    for (let i = 0; i < newQuestions.length; i++) {
+        if (newQuestions[i].id === targetId) {
+            const newOptions = [...newQuestions[i].options];
+            if (targetOptionIndex === -1) {
+                newOptions.push(newOption);
+            } else {
+                newOptions.splice(targetOptionIndex, 1, newOption);
+            }
+            newQuestions[i].options = newOptions;
+        }
+    }
+    return newQuestions;
 }
 
 /***
@@ -258,5 +283,14 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number
 ): Question[] {
-    return [];
+    const newQuestions = questions.map(
+        (question: Question): Question => ({ ...question })
+    );
+    for (let i = 0; i < newQuestions.length; i++) {
+        if (newQuestions[i].id === targetId) {
+            const dupedQ = duplicateQuestion(newId, newQuestions[i]);
+            newQuestions.splice(i + 1, 0, dupedQ);
+        }
+    }
+    return newQuestions;
 }
