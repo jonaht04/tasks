@@ -30,13 +30,9 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
-    if (
-        question.expected.toLowerCase.prototype.trim() ===
-        answer.toLowerCase.prototype.trim()
-    ) {
-        return true;
-    }
-    return false;
+    const expectedAnswer = question.expected.trim().toLowerCase();
+    const actualAnswer = answer.trim().toLowerCase();
+    return expectedAnswer === actualAnswer;
 }
 
 /**
@@ -161,5 +157,12 @@ export function mergeQuestion(
     contentQuestion: Question,
     { points }: { points: number }
 ): Question {
-    return contentQuestion;
+    const newQuestion = {
+        ...contentQuestion,
+        id: id,
+        name: name,
+        points: points,
+        published: false
+    };
+    return newQuestion;
 }
