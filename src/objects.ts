@@ -86,8 +86,11 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    const base = "# " + question.name + "\n" + question.body + "\n";
+    const base = "# " + question.name + "\n" + question.body;
     const addendum = [];
+    if (question.type === "short_answer_question") {
+        return base;
+    }
     for (let i = 0; i < question.options.length; i++) {
         addendum.push(question.options[i]);
     }
@@ -136,7 +139,12 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
-    return question;
+    const newQuestion = {
+        ...question,
+        options: [...question.options]
+    };
+    question.options.push(newOption);
+    return newQuestion;
 }
 
 /**
