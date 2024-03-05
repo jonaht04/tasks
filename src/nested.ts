@@ -1,5 +1,6 @@
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
+import { makeBlankQuestion } from "./objects";
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
@@ -108,19 +109,19 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
-    let CSV = "";
+    let CSV = "id,name,options,points,published";
     for (let i = 0; i < questions.length; i++) {
         CSV +=
+            "\n" +
             questions[i].id +
             "," +
             questions[i].name +
             "," +
-            questions[i].options +
+            questions[i].options.length +
             "," +
             questions[i].points +
             "," +
-            questions[i].published +
-            "\n";
+            questions[i].published;
     }
     return CSV;
 }
@@ -131,7 +132,16 @@ export function toCSV(questions: Question[]): string {
  * making the `text` an empty string, and using false for both `submitted` and `correct`.
  */
 export function makeAnswers(questions: Question[]): Answer[] {
-    return [];
+    const answers = [];
+    for (let i = 0; i < questions.length; i++) {
+        answers.push({
+            questionId: questions[i].id,
+            text: "",
+            submitted: false,
+            correct: false
+        });
+    }
+    return answers;
 }
 
 /***
@@ -139,7 +149,14 @@ export function makeAnswers(questions: Question[]): Answer[] {
  * each question is now published, regardless of its previous published status.
  */
 export function publishAll(questions: Question[]): Question[] {
-    return [];
+    const newQuestions = [];
+    for (let i = 0; i < questions.length; i++) {
+        newQuestions.push({
+            ...questions[i],
+            published: true
+        });
+    }
+    return newQuestions;
 }
 
 /***
@@ -147,7 +164,16 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
-    return false;
+    if (questions.length === 0) {
+        return true;
+    }
+    const baseVal = questions[0].type;
+    for (let i = 0; i < questions.length; i++) {
+        if (questions[i].type != baseVal) {
+            return false;
+        }
+    }
+    return true;
 }
 
 /***
@@ -161,7 +187,9 @@ export function addNewQuestion(
     name: string,
     type: QuestionType
 ): Question[] {
-    return [];
+    const newQuestions = [...questions];
+    newQuestions.push(makeBlankQuestion(id, name, type));
+    return newQuestions;
 }
 
 /***
@@ -174,7 +202,15 @@ export function renameQuestionById(
     targetId: number,
     newName: string
 ): Question[] {
-    return [];
+    const newQuestions = questions.map(
+        (question: Question): Question => ({ ...question })
+    );
+    for (let i = 0; i < newQuestions.length; i++) {
+        if (newQuestions[i].id === targetId) {
+            newQuestions[i].name = newName;
+        }
+    }
+    return newQuestions;
 }
 
 /***
