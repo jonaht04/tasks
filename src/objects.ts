@@ -125,6 +125,7 @@ export function publishQuestion(question: Question): Question {
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
     const newQuestion = {
         ...oldQuestion,
+        id: id,
         name: "Copy of " + oldQuestion.name,
         published: false
     };
@@ -141,9 +142,8 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
 export function addOption(question: Question, newOption: string): Question {
     const newQuestion = {
         ...question,
-        options: [...question.options]
+        options: [...question.options, newOption]
     };
-    question.options.push(newOption);
     return newQuestion;
 }
 
