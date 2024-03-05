@@ -48,7 +48,10 @@ export function findQuestion(
  * with the given `id`.
  */
 export function removeQuestion(questions: Question[], id: number): Question[] {
-    return [];
+    const adjustedQs = questions.filter(
+        (question: Question): boolean => question.id != id
+    );
+    return adjustedQs;
 }
 
 /***
@@ -56,21 +59,35 @@ export function removeQuestion(questions: Question[], id: number): Question[] {
  * questions, as an array.
  */
 export function getNames(questions: Question[]): string[] {
-    return [];
+    const names = [];
+    for (let i = 0; i < questions.length; i++) {
+        names.push(questions[i].name);
+    }
+    return names;
 }
 
 /***
  * Consumes an array of questions and returns the sum total of all their points added together.
  */
 export function sumPoints(questions: Question[]): number {
-    return 0;
+    let sum = 0;
+    for (let i = 0; i < questions.length; i++) {
+        sum += questions[i].points;
+    }
+    return sum;
 }
 
 /***
  * Consumes an array of questions and returns the sum total of the PUBLISHED questions.
  */
 export function sumPublishedPoints(questions: Question[]): number {
-    return 0;
+    let sum = 0;
+    for (let i = 0; i < questions.length; i++) {
+        if (questions[i].published) {
+            sum += questions[i].points;
+        }
+    }
+    return sum;
 }
 
 /***
@@ -91,7 +108,21 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
-    return "";
+    let CSV = "";
+    for (let i = 0; i < questions.length; i++) {
+        CSV +=
+            questions[i].id +
+            "," +
+            questions[i].name +
+            "," +
+            questions[i].options +
+            "," +
+            questions[i].points +
+            "," +
+            questions[i].published +
+            "\n";
+    }
+    return CSV;
 }
 
 /**
