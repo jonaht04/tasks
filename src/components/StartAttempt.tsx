@@ -4,9 +4,6 @@ import { Button } from "react-bootstrap";
 export function StartAttempt(): JSX.Element {
     const [Active, setActive] = useState<boolean>(false);
     const [Attempts, setAttempts] = useState<number>(4);
-    function reduceAttempts(): void {
-        setAttempts(Attempts - 1);
-    }
     function addAttempts(): void {
         setAttempts(Attempts + 1);
     }
