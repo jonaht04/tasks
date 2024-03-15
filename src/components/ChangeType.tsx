@@ -12,15 +12,15 @@ export function ChangeType(): JSX.Element {
             setQType("multiple_choice_question");
             setQText("Multiple Choice");
         }
-        if (questions === "short_answer_question") {
+        if (questions === "multiple_choice_question") {
             setQType("short_answer_question");
             setQText("Short Answer");
         }
     }
     return (
-        <div>
+        <body>
             <header>{QuestionText}</header>
             <Button onClick={QChange}>Change Type</Button>
-        </div>
+        </body>
     );
 }
