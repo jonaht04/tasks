@@ -15,6 +15,7 @@ PASS src/objects.test.ts
 PASS src/arrays.test.ts
 PASS src/nested.test.ts
 PASS src/components/StartAttempt.test.tsx
+PASS src/form-components/MultipleChoiceQuestion.test.tsx
 PASS src/components/TwoDice.test.tsx
   ● Console
 
@@ -47,9 +48,44 @@ PASS src/components/TwoDice.test.tsx
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
       at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
 
-PASS src/bad-components/ChooseTeam.test.tsx
-PASS src/bad-components/DoubleHalf.test.tsx
 PASS src/functions.test.ts
+PASS src/bad-components/DoubleHalf.test.tsx
+PASS src/bad-components/ChooseTeam.test.tsx
+PASS src/form-components/CheckAnswer.test.tsx
+PASS src/form-components/EditMode.test.tsx
+  ● Console
+
+    console.error
+      Warning: validateDOMNesting(...): <body> cannot appear as a child of <body>.
+          at body
+          at body
+          at div
+          at EditMode (/home/runner/work/tasks/tasks/src/form-components/EditMode.tsx:5:36)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10081:7)
+      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10181:5)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19464:28)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
+
+    console.error
+      Warning: validateDOMNesting(...): <body> cannot appear as a child of <div>.
+          at body
+          at div
+          at EditMode (/home/runner/work/tasks/tasks/src/form-components/EditMode.tsx:5:36)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10081:7)
+      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10181:5)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19464:28)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
+
 PASS src/components/ChangeType.test.tsx
   ● Console
 
@@ -99,6 +135,25 @@ PASS src/components/CycleHoliday.test.tsx
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
       at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
 
+PASS src/form-components/GiveAttempts.test.tsx
+  ● Console
+
+    console.error
+      Warning: validateDOMNesting(...): <body> cannot appear as a child of <div>.
+          at body
+          at div
+          at GiveAttempts (/home/runner/work/tasks/tasks/src/form-components/GiveAttempts.tsx:6:40)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10081:7)
+      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10181:5)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19464:28)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
+
+PASS src/form-components/ChangeColor.test.tsx
 PASS src/components/Counter.test.tsx
 PASS src/components/RevealAnswer.test.tsx
 PASS src/bad-components/ColoredBox.test.tsx
@@ -109,7 +164,26 @@ PASS src/App.test.tsx
     console.error
       Warning: validateDOMNesting(...): <body> cannot appear as a child of <div>.
           at body
-          at TwoDice (/home/runner/work/tasks/tasks/src/components/TwoDice.tsx:15:30)
+          at div
+          at GiveAttempts (/home/runner/work/tasks/tasks/src/form-components/GiveAttempts.tsx:6:40)
+          at div
+          at App
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10081:7)
+      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10181:5)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19464:28)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
+
+    console.error
+      Warning: validateDOMNesting(...): <body> cannot appear as a child of <body>.
+          at body
+          at body
+          at div
+          at EditMode (/home/runner/work/tasks/tasks/src/form-components/EditMode.tsx:5:36)
           at div
           at App
 
@@ -139,35 +213,41 @@ PASS src/App.test.tsx
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
       at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
 
---------------------|---------|----------|---------|---------|-------------------
-File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
---------------------|---------|----------|---------|---------|-------------------
-All files           |   98.96 |    97.05 |     100 |    98.9 |                   
- src                |    98.5 |    96.96 |     100 |   98.36 |                   
-  App.tsx           |     100 |      100 |     100 |     100 |                   
-  arrays.ts         |   94.91 |    92.59 |     100 |   94.73 | 120,143-144       
-  functions.ts      |     100 |      100 |     100 |     100 |                   
-  nested.ts         |     100 |      100 |     100 |     100 |                   
-  objects.ts        |     100 |      100 |     100 |     100 |                   
- src/bad-components |     100 |       50 |     100 |     100 |                   
-  ChooseTeam.tsx    |     100 |       50 |     100 |     100 | 24                
-  ColoredBox.tsx    |     100 |      100 |     100 |     100 |                   
-  DoubleHalf.tsx    |     100 |      100 |     100 |     100 |                   
-  ShoveBox.tsx      |     100 |      100 |     100 |     100 |                   
- src/components     |     100 |      100 |     100 |     100 |                   
-  ChangeType.tsx    |     100 |      100 |     100 |     100 |                   
-  Counter.tsx       |     100 |      100 |     100 |     100 |                   
-  CycleHoliday.tsx  |     100 |      100 |     100 |     100 |                   
-  RevealAnswer.tsx  |     100 |      100 |     100 |     100 |                   
-  StartAttempt.tsx  |     100 |      100 |     100 |     100 |                   
-  TwoDice.tsx       |     100 |      100 |     100 |     100 |                   
- src/interfaces     |       0 |        0 |       0 |       0 |                   
-  answer.ts         |       0 |        0 |       0 |       0 |                   
-  question.ts       |       0 |        0 |       0 |       0 |                   
---------------------|---------|----------|---------|---------|-------------------
+-----------------------------|---------|----------|---------|---------|-------------------
+File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------------|---------|----------|---------|---------|-------------------
+All files                    |   97.61 |    97.41 |   95.65 |   97.49 |                   
+ src                         |    98.5 |    96.96 |     100 |   98.36 |                   
+  App.tsx                    |     100 |      100 |     100 |     100 |                   
+  arrays.ts                  |   94.91 |    92.59 |     100 |   94.73 | 120,143-144       
+  functions.ts               |     100 |      100 |     100 |     100 |                   
+  nested.ts                  |     100 |      100 |     100 |     100 |                   
+  objects.ts                 |     100 |      100 |     100 |     100 |                   
+ src/bad-components          |     100 |       50 |     100 |     100 |                   
+  ChooseTeam.tsx             |     100 |       50 |     100 |     100 | 24                
+  ColoredBox.tsx             |     100 |      100 |     100 |     100 |                   
+  DoubleHalf.tsx             |     100 |      100 |     100 |     100 |                   
+  ShoveBox.tsx               |     100 |      100 |     100 |     100 |                   
+ src/components              |     100 |      100 |     100 |     100 |                   
+  ChangeType.tsx             |     100 |      100 |     100 |     100 |                   
+  Counter.tsx                |     100 |      100 |     100 |     100 |                   
+  CycleHoliday.tsx           |     100 |      100 |     100 |     100 |                   
+  RevealAnswer.tsx           |     100 |      100 |     100 |     100 |                   
+  StartAttempt.tsx           |     100 |      100 |     100 |     100 |                   
+  TwoDice.tsx                |     100 |      100 |     100 |     100 |                   
+ src/form-components         |   88.88 |      100 |   77.27 |   88.88 |                   
+  ChangeColor.tsx            |   58.33 |      100 |   44.44 |   58.33 | 38,62-98          
+  CheckAnswer.tsx            |     100 |      100 |     100 |     100 |                   
+  EditMode.tsx               |     100 |      100 |     100 |     100 |                   
+  GiveAttempts.tsx           |     100 |      100 |     100 |     100 |                   
+  MultipleChoiceQuestion.tsx |     100 |      100 |     100 |     100 |                   
+ src/interfaces              |       0 |        0 |       0 |       0 |                   
+  answer.ts                  |       0 |        0 |       0 |       0 |                   
+  question.ts                |       0 |        0 |       0 |       0 |                   
+-----------------------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 15 passed, 15 total
-Tests:       110 passed, 110 total
+Test Suites: 20 passed, 20 total
+Tests:       134 passed, 134 total
 Snapshots:   0 total
-Time:        6.158 s
+Time:        7.716 s
 Ran all test suites.
