@@ -18,91 +18,105 @@ export function ChangeColor(): JSX.Element {
     return (
         <div>
             <h3>Change Color</h3>
-            <Form.Check
-                inline
-                type="radio"
-                name="color"
-                onChange={(e) => setColor(e.target.value)}
-                id="response-red"
-                label="red"
-                value="red"
-                checked={color === "red"}
-            />
-            <Form.Check
-                inline
-                type="radio"
-                name="color"
-                onChange={(e) => setColor(e.target.value)}
-                id="response-green"
-                label="green"
-                value="green"
-                checked={color === "green"}
-            />
-            <Form.Check
-                inline
-                type="radio"
-                name="color"
-                onChange={(e) => setColor(e.target.value)}
-                id="response-blue"
-                label="blue"
-                value="blue"
-                checked={color === "blue"}
-            />
-            <Form.Check
-                inline
-                type="radio"
-                name="color"
-                onChange={(e) => setColor(e.target.value)}
-                id="response-mintcream"
-                label="mintcream"
-                value="mintcream"
-                checked={color === "mintcream"}
-            />
-            <Form.Check
-                inline
-                type="radio"
-                name="color"
-                onChange={(e) => setColor(e.target.value)}
-                id="response-orange"
-                label="orange"
-                value="orange"
-                checked={color === "orange"}
-            />
-            <Form.Check
-                inline
-                type="radio"
-                name="color"
-                onChange={(e) => setColor(e.target.value)}
-                id="response-olive"
-                label="olive"
-                value="olive"
-                checked={color === "olive"}
-            />
-            <Form.Check
-                inline
-                type="radio"
-                name="color"
-                onChange={(e) => setColor(e.target.value)}
-                id="response-purple"
-                label="purple"
-                value="purple"
-                checked={color === "purple"}
-            />
-            <Form.Check
-                inline
-                type="radio"
-                name="color"
-                onChange={(e) => setColor(e.target.value)}
-                id="response-brown"
-                label="brown"
-                value="brown"
-                checked={color === "brown"}
-            />
+            <span style={{ backgroundColor: "red" }}>
+                <Form.Check
+                    inline
+                    type="radio"
+                    name="color"
+                    onChange={(e) => setColor(e.target.value)}
+                    id="response-red"
+                    label="red"
+                    value="red"
+                    checked={color === "red"}
+                />
+            </span>
+            <span style={{ backgroundColor: "green" }}>
+                <Form.Check
+                    inline
+                    type="radio"
+                    name="color"
+                    onChange={(e) => setColor(e.target.value)}
+                    id="response-green"
+                    label="green"
+                    value="green"
+                    checked={color === "green"}
+                />
+            </span>
+            <span style={{ backgroundColor: "blue" }}>
+                <Form.Check
+                    inline
+                    type="radio"
+                    name="color"
+                    onChange={(e) => setColor(e.target.value)}
+                    id="response-blue"
+                    label="blue"
+                    value="blue"
+                    checked={color === "blue"}
+                />
+            </span>
+            <span style={{ backgroundColor: "mintcream" }}>
+                <Form.Check
+                    inline
+                    type="radio"
+                    name="color"
+                    onChange={(e) => setColor(e.target.value)}
+                    id="response-mintcream"
+                    label="mintcream"
+                    value="mintcream"
+                    checked={color === "mintcream"}
+                />
+            </span>
+            <span style={{ backgroundColor: "orange" }}>
+                <Form.Check
+                    inline
+                    type="radio"
+                    name="color"
+                    onChange={(e) => setColor(e.target.value)}
+                    id="response-orange"
+                    label="orange"
+                    value="orange"
+                    checked={color === "orange"}
+                />
+            </span>
+            <span style={{ backgroundColor: "olive" }}>
+                <Form.Check
+                    inline
+                    type="radio"
+                    name="color"
+                    onChange={(e) => setColor(e.target.value)}
+                    id="response-olive"
+                    label="olive"
+                    value="olive"
+                    checked={color === "olive"}
+                />
+            </span>
+            <span style={{ backgroundColor: "purple" }}>
+                <Form.Check
+                    inline
+                    type="radio"
+                    name="color"
+                    onChange={(e) => setColor(e.target.value)}
+                    id="response-purple"
+                    label="purple"
+                    value="purple"
+                    checked={color === "purple"}
+                />
+            </span>
+            <span style={{ backgroundColor: "brown" }}>
+                <Form.Check
+                    inline
+                    type="radio"
+                    name="color"
+                    onChange={(e) => setColor(e.target.value)}
+                    id="response-brown"
+                    label="brown"
+                    value="brown"
+                    checked={color === "brown"}
+                />
+            </span>
             <div
                 data-testid="colored-box"
                 style={{
-                    width: "50px",
-                    height: "50px",
                     backgroundColor: color,
                     display: "inline-block",
                     verticalAlign: "bottom",
